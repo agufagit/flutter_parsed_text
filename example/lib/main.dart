@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_parsed_text/flutter_parsed_text.dart';
 import 'package:url_launcher/url_launcher.dart' show canLaunch, launch;
@@ -85,8 +84,7 @@ class _MainAppState extends State<MainApp> {
                 ),
                 MatchText(
                     type: ParsedType.CUSTOM,
-                    pattern:
-                        "(---( )?(`)?spoiler(`)?( )?---)\n\n(.*?)\n( )?(---( )?(`)?spoiler(`)?( )?---)",
+                    pattern: "(---( )?(`)?spoiler(`)?( )?---)\n\n(.*?)\n( )?(---( )?(`)?spoiler(`)?( )?---)",
                     style: TextStyle(
                       color: Colors.purple,
                       fontSize: 50,
@@ -117,7 +115,6 @@ class _MainAppState extends State<MainApp> {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
-                        Map<String, String> map = Map<String, String>();
                         RegExp customRegExp = RegExp(r"\[(@[^:]+):([^\]]+)\]");
                         Match match = customRegExp.firstMatch(url)!;
                         // return object of type Dialog
@@ -126,7 +123,7 @@ class _MainAppState extends State<MainApp> {
                           content: new Text("${match.group(1)!} clicked."),
                           actions: <Widget>[
                             // usually buttons at the bottom of the dialog
-                            new FlatButton(
+                            new FilledButton(
                               child: new Text("Close"),
                               onPressed: () {},
                             ),
@@ -155,7 +152,7 @@ class _MainAppState extends State<MainApp> {
                           content: new Text("$url clicked."),
                           actions: <Widget>[
                             // usually buttons at the bottom of the dialog
-                            new FlatButton(
+                            new FilledButton(
                               child: new Text("Close"),
                               onPressed: () {},
                             ),

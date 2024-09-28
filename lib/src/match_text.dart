@@ -1,6 +1,6 @@
 part of flutter_parsed_text;
 
-enum ParsedType { EMAIL, PHONE, URL, CUSTOM }
+enum ParsedType { EMAIL, PHONE, URL, MENTION, HASHTAG, CUSTOM }
 
 /// A MatchText class which provides a structure for [ParsedText] to handle
 /// Pattern matching and also to provide custom [Function] and custom [TextStyle].
@@ -39,6 +39,9 @@ class MatchText {
     required String pattern,
   })? renderWidget;
 
+  /// A label to identify the MatchText object
+  String? label;
+
   /// Creates a MatchText object
   MatchText({
     this.type = ParsedType.CUSTOM,
@@ -47,5 +50,6 @@ class MatchText {
     this.onTap,
     this.renderText,
     this.renderWidget,
+    this.label,
   });
 }
